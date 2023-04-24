@@ -7,16 +7,14 @@ client_socket = socket.socket()
 host = 'localhost'
 print(host)
 # connect to the server on the specified port
-client_socket.connect((host, 8080))
-
-data = client_socket.recv(1024)
-print('Received data: ' + data.decode())
+client_socket.connect((host, 5000))
 
 # receive data from the server
 while 1:
     message = input('\nMessage to send: ')
-    client_socket.send(message.encode())
     if message == "fim" : break
+
+    client_socket.send(message.encode())
 
     print(client_socket.recv(1024).decode())
 
